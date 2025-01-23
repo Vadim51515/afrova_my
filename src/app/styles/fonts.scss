@@ -1,0 +1,20 @@
+$fontsInter: (
+        ('Regular', normal, normal),
+        ('Medium', 500, normal),
+        ('Semibold', 600, normal),
+        ('Bold', bold, normal),
+);
+
+@mixin font-face($family, $path, $weight, $style) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$path}.woff2') format('woff2'), url('#{$path}.woff') format('woff');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
+    }
+}
+
+@each $font, $weight, $style in $fontsInter {
+    @include font-face('Inter', '../fonts/Inter/Inter-#{$font}', $weight, $style);
+}

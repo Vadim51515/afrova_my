@@ -1,0 +1,34 @@
+@import './themes/dark.scss';
+
+:root {
+    --font-family-main: consolas, "Times New Roman", serif;
+    --font-size-m: 16px;
+    --font-line-m: 24px;
+    --font-m: var(--font-size-m) / var(--font-line-m) / var(--font-family-main);
+    --font-size-l: 24px;
+    --font-line-l: 32px;
+    --font-l: var(--font-size-l) / var(--font-line-l) / var(--font-family-main);
+
+    // Размеры
+    --header-height: 60px;
+    --sidebar-width: 300px;
+    --sidebar-width-collapsed: 120px;
+    --height-field:38px;
+
+    // Отступы
+    --content-page-padding: 20px;
+    --block-margin:20px;
+
+    // Скругление блоков
+    --small-border-radius: 4px;
+    --normal-border-radius: 8px;
+    --big-border-radius: 16px;
+
+    // z - Индексы
+    --modal-z-index: 10;
+    --select-z-index: 10;
+    --loader-z-index: 100;
+
+    // Общие цвета, независемые от темы
+    --overlay-color: rgba(0 0 0 / 60%);
+}

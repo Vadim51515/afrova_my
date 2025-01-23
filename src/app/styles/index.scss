@@ -1,0 +1,13 @@
+@import 'fonts';
+@import 'variables';
+@import './themes/dark';
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Inter;
+    background-color: #1f1e24;
+}
