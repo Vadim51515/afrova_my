@@ -1,4 +1,3 @@
-declare module '*.scss';
 declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.png';
@@ -24,3 +23,8 @@ type DeepPartial<T> = {
 type TOptionalRecord<K extends keyof unknown, T> = {
     [P in K]?: T;
 };
+
+declare module '*.module.scss' {
+    const classes: Record<string, string>;
+    export default classes;
+}

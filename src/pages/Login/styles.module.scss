@@ -1,0 +1,18 @@
+.wrapper{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: var(--additional-bg-color);
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.inputsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
