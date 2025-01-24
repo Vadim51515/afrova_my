@@ -1,0 +1,10 @@
+{
+    "users": [
+      { "id": 1, "name": "John Doe", "age": 30 },
+      { "id": 2, "name": "Jane Smith", "age": 25 }
+    ],
+    "posts": [
+      { "id": 1, "title": "Hello World", "content": "This is a test post" },
+      { "id": 2, "title": "Another Post", "content": "Content of the post" }
+    ]
+  }

@@ -9,6 +9,8 @@ import { type RuntimeStatuses } from '../../common/commonEnums';
 import { type Func } from '../../common/commonTypes';
 
 export interface IRootState {
+    // TODO
+    appInfo: any
     // user: any;
     // Асинхронные редюсеры
     bots?: any;

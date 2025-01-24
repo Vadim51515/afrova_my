@@ -1,8 +1,8 @@
 import React, { type FC } from 'react';
 import classNames from 'classnames';
 
-import { Header } from '../common/components/Header';
 import { Sidebar } from '../common/components/Sidebar';
+import { Header } from '../layout/Header';
 import { AppRouter } from './providers/router/ui/AppRouter/AppRouter';
 import styles from './App.module.scss';
 
