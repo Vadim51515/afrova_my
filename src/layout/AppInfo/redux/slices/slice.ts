@@ -3,7 +3,7 @@ import {
     type PayloadAction,
 } from '@reduxjs/toolkit';
 
-import { RuntimeStatuses } from '@/common/commonEnums';
+import { RuntimeStatuses } from '../../../../common/commonEnums';
 
 const initialState = { status: RuntimeStatuses.BeforeInitial };
 
