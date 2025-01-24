@@ -1,12 +1,7 @@
-import {
-    memo,
-    useState,
-} from 'react';
-
 export const ProfileBtn = () => {
-    return (
-        <div>
+    const a = true;
 
-        </div>
+    return (
+        <div />
     );
 };

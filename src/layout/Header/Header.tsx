@@ -2,6 +2,7 @@ import React, { type FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import logo from '../../assets/images/logo.png';
+import { HeaderBtn } from './components/HeaderBtn';
 import { isLoginAppInfoSelector } from '../AppInfo/redux/selectors';
 import styles from './Header.module.scss';
 interface IHeaderProps {
@@ -20,7 +21,7 @@ export const Header: FC<IHeaderProps> = () => {
                 src={logo}
             />
 
-            {/* <ProfileBtn /> */}
+            <HeaderBtn />
         </header>
     );
 };

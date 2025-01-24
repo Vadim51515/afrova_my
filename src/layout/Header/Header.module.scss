@@ -1,7 +1,8 @@
 .header {
-    display: flex;
-    border-bottom: 1px solid var(--border-color);
     padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo{
