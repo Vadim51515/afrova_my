@@ -12,8 +12,8 @@
 
 .botItemContainer{
     width: 100%;
-    border: 1px solid var(--border-color);
     padding: 16px;
+    border: 1px solid var(--border-color);
 }
 
 .botItemContent{
@@ -47,14 +47,14 @@
 
 @keyframes pulse {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
     
     50% {
-      opacity: 0.5; 
+        opacity: 0.5; 
     }
     
     100% {
-      opacity: 1; 
+        opacity: 1; 
     }
-  }
+}

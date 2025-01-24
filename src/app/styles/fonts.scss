@@ -1,8 +1,8 @@
 $fontsInter: (
-        ('Regular', normal, normal),
-        ('Medium', 500, normal),
-        ('Semibold', 600, normal),
-        ('Bold', bold, normal),
+    ('Regular', normal, normal),
+    ('Medium', 500, normal),
+    ('Semibold', 600, normal),
+    ('Bold', bold, normal),
 );
 
 @mixin font-face($family, $path, $weight, $style) {
