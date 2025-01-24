@@ -4,6 +4,6 @@ export const LoginBtn = () => {
     const test = 'q34';
 
     return (
-        <Button>test</Button>
+        <Button>Авторизация</Button>
     );
 };
