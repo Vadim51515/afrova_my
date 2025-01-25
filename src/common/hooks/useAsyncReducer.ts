@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import {
     useDispatch,
     useStore,
@@ -14,7 +14,7 @@ export const useAsyncReducer = (reducers: TReducersList, removeAfterUnmount = fa
     const dispatch = useDispatch();
     const store = useStore() as IReduxStoreWithManager;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         Object.entries(reducers).forEach(([reducerName, reducer]) => {
             const reducersMap = store.reducerManager.getReducerMap();
             const hasMountedReducer = reducersMap[reducerName as IStateKey];

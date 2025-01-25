@@ -6,8 +6,10 @@ import {
 import { createReducerManager } from './createReducerManager';
 import { type IRootState } from './types';
 
-export const createReduxStore = (preloadedState?: IRootState,
-    asyncReducers?: DeepPartial<ReducersMapObject<IRootState>>) => {
+export const createReduxStore = (
+    preloadedState?: IRootState,
+    asyncReducers?: DeepPartial<ReducersMapObject<IRootState>>,
+) => {
     const rootReducers: ReducersMapObject<IRootState> = { ...asyncReducers };
 
     const reducerManager = createReducerManager(rootReducers);

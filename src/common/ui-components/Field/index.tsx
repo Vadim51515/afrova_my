@@ -6,11 +6,12 @@ import {
 import { FieldLabel } from '../FieldLabel';
 import { Input } from '../Input/Input'; // TODO импорт кривой
 import { Select } from '../Select';
+import { type IInputProps } from '../Input/types';
+import { type ISelectProps } from '../Select/types';
 import { type TFieldProps } from './types';
 import styles from './styles.module.scss';
 
 export const Field: FC<TFieldProps> = memo(({
-    fieldName,
     fieldType,
     label,
     isRequired,
@@ -22,13 +23,13 @@ export const Field: FC<TFieldProps> = memo(({
 
     switch (fieldType) {
         case 'input':
-            Component = Input;
+            Component = <Input {...otherProps as IInputProps} />;
             break;
         case 'select':
-            Component = Select;
+            Component = <Select {...otherProps as ISelectProps} />;
             break;
         default:
-            Component = Input;
+            Component = <Input {...otherProps as IInputProps} />;
     }
 
     return (
@@ -38,7 +39,7 @@ export const Field: FC<TFieldProps> = memo(({
                 label={label}
             />
 
-            {<Component {...otherProps} />}
+            {Component}
         </div>
     );
 });

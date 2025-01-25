@@ -3,7 +3,7 @@ import { type IInputProps } from '../Input/types';
 import { type ISelectProps } from '../Select/types';
 
 interface IBaseFieldProps extends IFieldLabelProps {
-    fieldName: string;
+    errors?: Array<string>;
 }
 
 type TSelectFieldProps = IBaseFieldProps & ISelectProps & {

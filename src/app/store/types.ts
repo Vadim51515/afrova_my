@@ -10,10 +10,11 @@ import { type Func } from '../../common/commonTypes';
 
 export interface IRootState {
     // TODO
-    appInfo: any
+    appInfo: any;
     // user: any;
     // Асинхронные редюсеры
     bots?: any;
+    login?: any;
 }
 
 export type IStateKey = keyof IRootState;
