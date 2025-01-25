@@ -1,19 +1,17 @@
 import { store } from '../../app/store';
-import { type TReducersList } from '../../app/store/types';
-import { useAsyncReducer } from '../../common/hooks/useAsyncReducer';
+import { useActions } from '../../common/hooks/useActions';
 import { Button } from '../../common/ui-components/Button';
-import { Field } from '../../common/ui-components/Field';
 import { Text } from '../../common/ui-components/Text';
 import { LoginInput } from './components/LoginInput';
+import { PasswordInput } from './components/PasswordInput';
+import { loginActions } from './redux/actions';
 import { loginReducer } from './redux/slice';
 import styles from './styles.module.scss';
-
-const reducers: TReducersList = { login: loginReducer };
 
 store.addModule('login', loginReducer);
 
 export default () => {
-    useAsyncReducer(reducers, true);
+    const { login } = useActions(loginActions);
 
     return (
         <div className={styles.wrapper}>
@@ -28,16 +26,15 @@ export default () => {
                 <div className={styles.inputsWrapper}>
                     <LoginInput />
 
-                    <Field
-                        fieldType='input'
-                        label='Пароль'
-                        onChange={() => {}}
-                        value={'sdf'}
-                        isRequired
-                    />
+                    <PasswordInput />
                 </div>
 
-                <Button isFullWidth>Войти</Button>
+                <Button
+                    onClick={login}
+                    isFullWidth
+                >
+                    Войти
+                </Button>
             </div>
         </div>
     );

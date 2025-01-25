@@ -5,11 +5,13 @@ import {
     type Reducer,
     type ReducersMapObject,
     type Store,
+    type ThunkAction,
     type UnknownAction,
 } from '@reduxjs/toolkit';
 
 import { type RuntimeStatuses } from '../../common/commonEnums';
 import { type Func } from '../../common/commonTypes';
+import { type ILoginState } from '../../pages/Login/redux/types';
 import { type createReducerManager } from './createReducerManager';
 
 export interface IRootState {
@@ -18,7 +20,7 @@ export interface IRootState {
     // user: any;
     // Асинхронные редюсеры
     bots?: any;
-    login?: any;
+    login: ILoginState;
 }
 
 export type IStateKey = keyof IRootState;
@@ -52,3 +54,5 @@ export interface IRootStore<S = any, A extends Action = AnyAction> extends Store
     addModule: (key: keyof IRootState, reducer: Reducer, isReplace?: boolean) => void;
     removeModule: (key: keyof IRootState) => void;
 }
+
+export type ThunkActionCommon<R = void> = ThunkAction<R, IRootState, void, AnyAction>;

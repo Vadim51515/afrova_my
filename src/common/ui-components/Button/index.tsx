@@ -12,6 +12,7 @@ export const Button: CFC<IButtonProps> = ({
     size = 'md',
     mix,
     isFullWidth,
+    onClick,
 }) => {
     console.log();
 
@@ -22,7 +23,10 @@ export const Button: CFC<IButtonProps> = ({
     };
 
     return (
-        <button className={classNames(styles.button, mods, [mix])}>
+        <button
+            className={classNames(styles.button, mods, [mix])}
+            onClick={onClick}
+        >
             {children}
         </button>
     );
