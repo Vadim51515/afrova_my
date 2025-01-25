@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import {
+    type FC,
+    useState,
+} from 'react';
 import ReactSelect from 'react-select';
 
 import {
     type IOption,
     type Nullable,
 } from '../../commonTypes';
+import { type ISelectProps } from './types';
 
 const options = [
     {
@@ -21,7 +25,7 @@ const options = [
     },
 ];
 
-export const Select = () => {
+export const Select: FC<ISelectProps> = () => {
     const [selectedOption, setSelectedOption] = useState<Nullable<IOption>>(null);
 
     return (

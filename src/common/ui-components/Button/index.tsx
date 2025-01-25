@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+
 import { type CFC } from '../../commonTypes';
 import { type IButtonProps } from './types';
 import styles from './styles/index.module.scss';
@@ -8,15 +10,19 @@ export const Button: CFC<IButtonProps> = ({
     children,
     pattern = 'common',
     size = 'md',
+    mix,
+    isFullWidth,
 }) => {
     console.log();
 
-    const generatedStyles = `${styles.button} ${patternsStyles[pattern]} ${sizeStyles[size]}`;
-
-    console.log('generatedStyles', generatedStyles);
+    const mods = {
+        [patternsStyles[pattern]]: pattern,
+        [sizeStyles[size]]: size,
+        [styles.fullWidth]: isFullWidth,
+    };
 
     return (
-        <button className={generatedStyles}>
+        <button className={classNames(styles.button, mods, [mix])}>
             {children}
         </button>
     );
