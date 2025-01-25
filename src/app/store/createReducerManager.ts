@@ -6,12 +6,11 @@ import type {
 import { combineReducers } from 'redux';
 
 import {
-    type IReducerManager,
     type IRootState,
     type IStateKey,
 } from './types';
 
-export function createReducerManager(initialReducers: ReducersMapObject<IRootState>): IReducerManager {
+export function createReducerManager(initialReducers: ReducersMapObject<IRootState>) {
     const reducers = { ...initialReducers };
     let combinedReducer = combineReducers(reducers);
     let keysToRemove: Array<IStateKey> = [];
@@ -34,20 +33,24 @@ export function createReducerManager(initialReducers: ReducersMapObject<IRootSta
 
         add: (key: IStateKey, reducer: Reducer) => {
             if (!key || reducers[key]) {
-                return;
+                return false;
             }
             reducers[key] = reducer;
             combinedReducer = combineReducers(reducers);
+
+            return true;
         },
 
         remove: (key: IStateKey) => {
             if (!key || !reducers[key]) {
-                return;
+                return false;
             }
 
             delete reducers[key];
             keysToRemove.push(key);
             combinedReducer = combineReducers(reducers);
+
+            return true;
         },
     };
 }

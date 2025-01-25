@@ -4,7 +4,10 @@ import {
 } from '@reduxjs/toolkit';
 
 import { createReducerManager } from './createReducerManager';
-import { type IRootState } from './types';
+import {
+    type IRootState,
+    type IRootStore,
+} from './types';
 
 export const createReduxStore = (
     preloadedState?: IRootState,
@@ -18,11 +21,21 @@ export const createReduxStore = (
         reducer: reducerManager.reduce,
         devTools: true,
         preloadedState,
-    });
+    }) as IRootStore;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+    console.log('store', store);
+
     store.reducerManager = reducerManager;
+
+    store.addModule = (key: keyof IRootState, reducer) => {
+        if (store.reducerManager.add(key, reducer)) store.replaceReducer(reducerManager.reduce);
+    };
+
+    store.removeModule = (key) => {
+        if (store.reducerManager.remove(key)) store.replaceReducer(reducerManager.reduce);
+    };
 
     return store;
 };
+
+export const store = createReduxStore();

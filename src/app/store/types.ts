@@ -1,12 +1,16 @@
 import {
+    type Action,
+    type AnyAction,
     type EnhancedStore,
     type Reducer,
     type ReducersMapObject,
+    type Store,
     type UnknownAction,
 } from '@reduxjs/toolkit';
 
 import { type RuntimeStatuses } from '../../common/commonEnums';
 import { type Func } from '../../common/commonTypes';
+import { type createReducerManager } from './createReducerManager';
 
 export interface IRootState {
     // TODO
@@ -40,4 +44,11 @@ export interface IReduxStoreWithManager extends EnhancedStore<IRootState> {
 
     addModule: (key: string, reducer: Reducer, isReplace?: boolean) => void;
     removeModule: (key: string) => void;
+}
+
+type TCreateReducerManager = ReturnType<typeof createReducerManager>;
+export interface IRootStore<S = any, A extends Action = AnyAction> extends Store<S, A> {
+    reducerManager: TCreateReducerManager;
+    addModule: (key: keyof IRootState, reducer: Reducer, isReplace?: boolean) => void;
+    removeModule: (key: keyof IRootState) => void;
 }

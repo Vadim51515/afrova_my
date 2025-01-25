@@ -1,3 +1,4 @@
+import { store } from '../../app/store';
 import { type TReducersList } from '../../app/store/types';
 import { useAsyncReducer } from '../../common/hooks/useAsyncReducer';
 import { Button } from '../../common/ui-components/Button';
@@ -8,6 +9,8 @@ import { loginReducer } from './redux/slice';
 import styles from './styles.module.scss';
 
 const reducers: TReducersList = { login: loginReducer };
+
+store.addModule('login', loginReducer);
 
 export default () => {
     useAsyncReducer(reducers, true);
