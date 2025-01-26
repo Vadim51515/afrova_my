@@ -1,16 +1,12 @@
-import axios, { type AxiosRequestConfig } from 'axios';
+import axios, { type AxiosInstance } from 'axios';
 
-// import { config } from './config';
-// import { getController } from './getController';
-// import type { TResponseData } from '../types/types';
-// import {
-//     type TController,
-//     type TData,
-// } from './types';
+import {
+    type IResponseData,
+    type TData,
+} from './types';
 
 export class ApiController {
-    public controller: TController;
-    public requestList: Record<string, AxiosRequestConfig> = {};
+    public controller: AxiosInstance;
     public get: ReturnType<typeof this.request>;
     public delete: ReturnType<typeof this.request>;
     public post: ReturnType<typeof this.requestWithData>;
@@ -19,7 +15,6 @@ export class ApiController {
 
     constructor() {
         this.controller = axios.create({ baseURL: __API__ });
-        this.requestList = this.controller.requestList;
         this.get = this.request('get');
         this.delete = this.request('delete');
         this.post = this.requestWithData('post');
@@ -29,13 +24,13 @@ export class ApiController {
 
     private request(method: 'get' | 'delete') {
         return <R>(url: string) => (
-            this.controller[method]<TResponseData<R>>(url)
+            this.controller[method]<IResponseData<R>>(url)
                 .then((response) => response));
     }
 
     private requestWithData(method: 'post' | 'put' | 'patch') {
         return <R, D = never>(url: string, data?: TData<D>) => (
-            this.controller[method]<TResponseData<R>>(url, data)
+            this.controller[method]<R>(url, data)
                 .then((response) => response));
     }
 }

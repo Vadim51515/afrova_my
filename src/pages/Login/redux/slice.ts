@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import { RuntimeStatuses } from '../../../common/commonEnums';
+import { type TFormErrors } from '../../../common/commonTypes';
 import { type ILoginState } from './types';
 
 const initialState: ILoginState = {
@@ -11,6 +12,7 @@ const initialState: ILoginState = {
     login: '',
     password: '',
     error: '',
+    formErrors: {},
 };
 
 export const {
@@ -24,12 +26,20 @@ export const {
             state.status = payload;
         },
 
+        setError(state, { payload }: PayloadAction<string>) {
+            state.error = payload;
+        },
+
         setLogin(state, { payload }: PayloadAction<string>) {
             state.login = payload;
         },
 
         setPassword(state, { payload }: PayloadAction<string>) {
             state.password = payload;
+        },
+
+        addFormError(state, { payload }: PayloadAction<TFormErrors>) {
+            Object.assign(state.formErrors, payload);
         },
     },
 

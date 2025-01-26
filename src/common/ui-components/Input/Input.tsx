@@ -9,14 +9,12 @@ import styles from './styles.module.scss';
 
 export const Input: FC<IInputProps> = ({
     mix,
-    size = 'sizeContent',
+    size = 'md',
     isFullWidth,
     withEventChange,
     onChange,
     dataTestId,
     value = '',
-    label,
-    isRequired,
     ...props
 }) => {
     const mods = {
@@ -28,8 +26,6 @@ export const Input: FC<IInputProps> = ({
         if (withEventChange) onChange(event);
         else onChange(event.target.value);
     };
-
-    // if (isReadOnly) return <Text dataTestId={`${dataTestId}ReadonlyText`}>{value}</Text>;
 
     return (
         <input

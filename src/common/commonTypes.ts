@@ -15,3 +15,13 @@ export interface IOption {
 }
 
 export type TOptions = Array<IOption>;
+
+export interface IUser {
+    id: number;
+    name: string;
+    age: number;
+    login: string;
+    password: string;
+}
+
+export type TFormErrors = Record<string, string>;

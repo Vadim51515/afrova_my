@@ -6,6 +6,7 @@ import {
 import { FieldLabel } from '../FieldLabel';
 import { Input } from '../Input/Input'; // TODO импорт кривой
 import { Select } from '../Select';
+import { Text } from '../Text';
 import { type IInputProps } from '../Input/types';
 import { type ISelectProps } from '../Select/types';
 import { type TFieldProps } from './types';
@@ -15,6 +16,7 @@ export const Field: FC<TFieldProps> = memo(({
     fieldType,
     label,
     isRequired,
+    errors,
     ...otherProps
 }) => {
     console.log(styles);
@@ -40,6 +42,15 @@ export const Field: FC<TFieldProps> = memo(({
             />
 
             {Component}
+
+            {errors?.map((error) => (
+                <Text
+                    key={error}
+                    isError
+                >
+                    {error}
+                </Text>
+            ))}
         </div>
     );
 });
