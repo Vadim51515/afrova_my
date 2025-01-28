@@ -15,10 +15,14 @@ export const Input: FC<IInputProps> = ({
     onChange,
     dataTestId,
     value = '',
+    hasError,
     ...props
 }) => {
+    console.log('hasError', hasError);
+
     const mods = {
         [styles.fullWidth]: isFullWidth,
+        [styles.error]: hasError,
         [styles[size]]: size,
     };
 

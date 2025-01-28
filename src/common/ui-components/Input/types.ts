@@ -23,7 +23,7 @@ export type InputPropsWithEvent = BaseInputProps & {
     onChange: Func<[ChangeEvent<HTMLInputElement>]>;
 };
 
-type InputPropsWithString = BaseInputProps & {
+export type InputPropsWithString = BaseInputProps & {
     withEventChange?: false;
     onChange: Func<[string]>;
 };
