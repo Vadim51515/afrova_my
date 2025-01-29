@@ -3,6 +3,8 @@ import { type AxiosError } from 'axios';
 import { type ThunkActionCommon } from '../../../app/store/types';
 import { API_CONTROLLER } from '../../../common/apiController';
 import { type IUser } from '../../../common/commonTypes';
+import { lStorage } from '../../../common/functions/localStorage';
+import { appInfoSliceActions } from '../../../layout/AppInfo/redux/slices/slice';
 import { ENDPOINTS } from './endpoints';
 import {
     loginSelector,
@@ -18,6 +20,8 @@ const {
     setError,
     addFormError,
 } = loginSliceActions;
+
+const { setAuthData } = appInfoSliceActions;
 
 const login = (): ThunkActionCommon => (dispatch, getState) => {
     const login = loginSelector(getState());
@@ -36,7 +40,8 @@ const login = (): ThunkActionCommon => (dispatch, getState) => {
     }).then((response) => {
         const data = response.data;
 
-        console.log('data', data);
+        lStorage.setJson('loginData', data);
+        dispatch(setAuthData(data));
     }).catch((errorResponse: AxiosError<{ message: string }>) => {
         dispatch(setError(errorResponse.response?.data.message ?? ''));
     });

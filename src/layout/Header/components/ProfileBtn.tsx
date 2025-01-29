@@ -2,6 +2,6 @@ export const ProfileBtn = () => {
     const a = true;
 
     return (
-        <div />
+        <div>profile</div>
     );
 };

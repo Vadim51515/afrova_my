@@ -11,15 +11,14 @@ import {
 
 import { type RuntimeStatuses } from '../../common/commonEnums';
 import { type Func } from '../../common/commonTypes';
+import { type IAppInfoState } from '../../layout/AppInfo/redux/types';
 import { type ILoginState } from '../../pages/Login/redux/types';
 import { type createReducerManager } from './createReducerManager';
 
 export interface IRootState {
     // TODO
-    appInfo: any;
+    appInfo: IAppInfoState;
     // user: any;
-    // Асинхронные редюсеры
-    bots?: any;
     login: ILoginState;
 }
 

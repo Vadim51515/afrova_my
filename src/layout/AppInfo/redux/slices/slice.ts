@@ -4,8 +4,16 @@ import {
 } from '@reduxjs/toolkit';
 
 import { RuntimeStatuses } from '../../../../common/commonEnums';
+import {
+    type IAppInfoState,
+    type IAuthData,
+} from '../types';
 
-const initialState = { status: RuntimeStatuses.BeforeInitial };
+const initialState: IAppInfoState = {
+    status: RuntimeStatuses.BeforeInitial,
+    error: '',
+    authData: null,
+};
 
 export const {
     reducer: appInfoReducer,
@@ -18,8 +26,8 @@ export const {
             state.status = payload;
         },
 
-        setStatusTest(state, { payload }: PayloadAction<RuntimeStatuses>) {
-            state.status = payload;
+        setAuthData(state, { payload }: PayloadAction<IAuthData>) {
+            state.authData = payload;
         },
     },
 
