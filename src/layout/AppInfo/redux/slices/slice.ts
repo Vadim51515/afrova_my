@@ -4,16 +4,14 @@ import {
 } from '@reduxjs/toolkit';
 
 import { RuntimeStatuses } from '../../../../common/commonEnums';
+import { type IUser } from '../../../../common/commonTypes';
 import { lStorage } from '../../../../common/functions/localStorage';
-import {
-    type IAppInfoState,
-    type IAuthData,
-} from '../types';
+import { type IAppInfoState } from '../types';
 
 const initialState: IAppInfoState = {
     status: RuntimeStatuses.BeforeInitial,
     error: '',
-    authData: lStorage.getJson<IAuthData>('authData'),
+    userData: lStorage.getJson<IUser>('userData'),
 };
 
 export const {
@@ -27,8 +25,8 @@ export const {
             state.status = payload;
         },
 
-        setAuthData(state, { payload }: PayloadAction<IAuthData>) {
-            state.authData = payload;
+        setUserData(state, { payload }: PayloadAction<IUser>) {
+            state.userData = payload;
         },
     },
 

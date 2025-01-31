@@ -5,6 +5,11 @@ export const LoginBtn = () => {
 
     return (
         // <Button>Авторизация</Button>
-        <Link href={'/login'} pattern='primary'>Авторизация</Link>
+        <Link
+            href={'/login'}
+            pattern='primary'
+        >
+            Авторизация
+        </Link>
     );
 };

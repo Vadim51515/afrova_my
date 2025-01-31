@@ -1,17 +1,14 @@
-import {
-    useEffect,
-    useLayoutEffect,
-} from 'react';
+import { useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 
 import { store } from '../../app/store';
+import { type IUser } from '../../common/commonTypes';
 import { lStorage } from '../../common/functions/localStorage';
 import { useActions } from '../../common/hooks/useActions';
 import { Button } from '../../common/ui-components/Button';
 import { Text } from '../../common/ui-components/Text';
 import { isLoginAppInfoSelector } from '../../layout/AppInfo/redux/selectors';
-import type { IAuthData } from '../../layout/AppInfo/redux/types';
 import { LoginInput } from './components/LoginInput';
 import { PasswordInput } from './components/PasswordInput';
 import { loginActions } from './redux/actions';
@@ -30,7 +27,7 @@ export default () => {
     const navigate = useNavigate();
 
     useLayoutEffect(() => {
-        console.log('lStorage appInfo', lStorage.getJson<IAuthData>('authData'));
+        console.log('lStorage appInfo', lStorage.getJson<IUser>('userData'));
         if (isLogin) navigate('/');
     }, [isLogin]);
 

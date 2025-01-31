@@ -21,7 +21,7 @@ const {
     addFormError,
 } = loginSliceActions;
 
-const { setAuthData } = appInfoSliceActions;
+const { setUserData } = appInfoSliceActions;
 
 const login = (): ThunkActionCommon => (dispatch, getState) => {
     const login = loginSelector(getState());
@@ -40,8 +40,10 @@ const login = (): ThunkActionCommon => (dispatch, getState) => {
     }).then((response) => {
         const data = response.data;
 
-        lStorage.setJson('authData', data);
-        dispatch(setAuthData(data));
+        console.log('data', data);
+
+        lStorage.setJson('userData', data);
+        dispatch(setUserData(data));
     }).catch((errorResponse: AxiosError<{ message: string }>) => {
         dispatch(setError(errorResponse.response?.data.message ?? ''));
     });

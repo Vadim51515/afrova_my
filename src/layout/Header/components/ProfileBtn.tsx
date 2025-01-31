@@ -1,9 +1,15 @@
-import { useSelector } from "react-redux";
+import { Link } from '../../../common/ui-components/Link';
 
 export const ProfileBtn = () => {
-        const aaaa = useSelector()
+    // const aaaa = useSelector();
+    const a = 1;
 
     return (
-        <div>profile</div>
+        <Link
+            href='/profile'
+            pattern='primary'
+        >
+            profile
+        </Link>
     );
 };
