@@ -1,0 +1,16 @@
+.link{
+    text-decoration: none;
+}
+
+.link:hover {
+    opacity: 0.8;
+}
+// Patterns
+
+.common{
+    color: var(--link-color);
+}
+
+.primary{
+    color: var(--primary-color);
+}

@@ -1,6 +1,7 @@
 import React, { type FC } from 'react';
 
 import logo from '../../assets/images/logo.png';
+import { Link } from '../../common/ui-components/Link';
 import { HeaderBtn } from './components/HeaderBtn';
 import styles from './Header.module.scss';
 interface IHeaderProps {
@@ -9,11 +10,13 @@ interface IHeaderProps {
 
 export const Header: FC<IHeaderProps> = () => (
     <header className={styles.header}>
-        <img
-            alt='logo'
-            className={styles.logo}
-            src={logo}
-        />
+        <Link href={'/home'}>
+            <img
+                alt='logo'
+                className={styles.logo}
+                src={logo}
+            />
+        </Link>
 
         <HeaderBtn />
     </header>

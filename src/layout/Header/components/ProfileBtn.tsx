@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
+
 export const ProfileBtn = () => {
-    const a = true;
+        const aaaa = useSelector()
 
     return (
         <div>profile</div>

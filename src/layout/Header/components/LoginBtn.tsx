@@ -1,9 +1,10 @@
-import { Button } from '../../../common/ui-components/Button';
+import { Link } from '../../../common/ui-components/Link';
 
 export const LoginBtn = () => {
     const test = 'q34';
 
     return (
-        <Button>Авторизация</Button>
+        // <Button>Авторизация</Button>
+        <Link href={'/login'} pattern='primary'>Авторизация</Link>
     );
 };

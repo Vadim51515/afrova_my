@@ -4,6 +4,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import { RuntimeStatuses } from '../../../../common/commonEnums';
+import { lStorage } from '../../../../common/functions/localStorage';
 import {
     type IAppInfoState,
     type IAuthData,
@@ -12,7 +13,7 @@ import {
 const initialState: IAppInfoState = {
     status: RuntimeStatuses.BeforeInitial,
     error: '',
-    authData: null,
+    authData: lStorage.getJson<IAuthData>('authData'),
 };
 
 export const {
