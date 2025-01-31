@@ -3,6 +3,7 @@ import { type RouteProps } from 'react-router';
 export enum AppRoutes {
     Home = 'home',
     Login = 'login',
+    Profile = 'profile',
 }
 
 export type TAppRoutesProps = RouteProps & {
@@ -12,4 +13,5 @@ export type TAppRoutesProps = RouteProps & {
 export const RoutePath = {
     Home: '/home',
     Login: '/login',
+    Profile: '/profile',
 };
