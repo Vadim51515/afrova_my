@@ -1,5 +1,5 @@
-import { Bots } from '../../common/modules/Bots';
+import { Text } from '../../common/ui-components/Text';
 
 export default () => (
-    <Bots />
+    <Text tagName='h1'>Home Page</Text>
 );

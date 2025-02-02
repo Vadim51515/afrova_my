@@ -1,9 +1,6 @@
 import axios, { type AxiosInstance } from 'axios';
 
-import {
-    type IResponseData,
-    type TData,
-} from './types';
+import { type TData } from './types';
 
 export class ApiController {
     public controller: AxiosInstance;
@@ -24,7 +21,7 @@ export class ApiController {
 
     private request(method: 'get' | 'delete') {
         return <R>(url: string) => (
-            this.controller[method]<IResponseData<R>>(url)
+            this.controller[method]<R>(url)
                 .then((response) => response));
     }
 

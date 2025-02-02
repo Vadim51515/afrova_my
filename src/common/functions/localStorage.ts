@@ -11,7 +11,7 @@ export const lStorage = (() => {
     return {
         dispatchEvent(
             key: string | undefined,
-            oldValue: string,
+            oldValue: Nullable<string>,
             newValue: string | undefined,
         ) {
             const event = new StorageEvent('storage', {
@@ -79,7 +79,7 @@ export const lStorage = (() => {
 
             localStorage.clear();
 
-            this.dispatchEvent(undefined, oldValue, undefined);
+            this.dispatchEvent(undefined, String(oldValue), undefined);
         },
 
         getIs: () => is,

@@ -40,8 +40,6 @@ const login = (): ThunkActionCommon => (dispatch, getState) => {
     }).then((response) => {
         const data = response.data;
 
-        console.log('data', data);
-
         lStorage.setJson('userData', data);
         dispatch(setUserData(data));
     }).catch((errorResponse: AxiosError<{ message: string }>) => {

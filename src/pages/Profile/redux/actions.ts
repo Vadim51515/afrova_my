@@ -11,9 +11,10 @@ const {
     setError,
 } = profileSliceActions;
 
-const getProfileData = (): ThunkActionCommon => (dispatch, getState) => {
+const getProfileData = (): ThunkActionCommon => (dispatch) => {
     API_CONTROLLER.get<IUser>(ENDPOINTS.profile(1)).then((response) => {
         const data = response.data;
+        console.log('data', data);
 
         dispatch(setProfileData(data));
     }).catch((errorResponse: AxiosError<{ message: string }>) => {

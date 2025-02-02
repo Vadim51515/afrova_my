@@ -11,6 +11,8 @@ const initialState: IProfileState = {
     status: RuntimeStatuses.BeforeInitial,
     error: '',
     formErrors: {},
+    id: 0,
+    name: '',
 };
 
 export const {

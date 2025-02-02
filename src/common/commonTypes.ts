@@ -20,8 +20,6 @@ export interface IUser {
     id: number;
     name: string;
     age?: number;
-    // login: string;
-    // password: string;
     avatar?: string;
 }
 
