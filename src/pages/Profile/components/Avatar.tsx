@@ -7,7 +7,7 @@ export const Avatar = () => {
     const avatar = useSelector(avatarProfileSelector);
 
     return (
-        <div >
+        <div>
             <img
                 alt="Аватарка пользователя"
                 className={styles.avatar}
