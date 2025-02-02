@@ -20,7 +20,6 @@ server.use(async (req, res, next) => {
 
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
-    console.log('login')
     try {
         const { username, password } = req.body
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
@@ -32,6 +31,27 @@ server.post('/login', (req, res) => {
 
         if (userFromBd) {
             return res.json(userFromBd)
+        }
+
+        return res.status(403).json({ message: 'User not found' })
+    } catch (e) {
+        console.log(e)
+        return res.status(500).json({ message: e.message })
+    }
+})
+
+server.get('/profile/:id', (req, res) => {
+    try {
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+        const { users = [] } = db
+        
+        const currentUser = db.users.find(c => c.id === +req.params.id)
+
+        delete currentUser.password;
+        delete currentUser.login;
+
+        if (currentUser) {
+            return res.json(currentUser)
         }
 
         return res.status(403).json({ message: 'User not found' })

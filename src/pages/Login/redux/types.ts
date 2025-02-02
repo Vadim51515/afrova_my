@@ -7,7 +7,7 @@ export interface ILoginState extends ISharedState {
     formErrors: TFormErrors;
 }
 
-export interface ILoginPostData {
+export interface IAuthLoginData {
     login: string;
     password: string;
 }

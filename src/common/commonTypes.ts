@@ -19,9 +19,12 @@ export type TOptions = Array<IOption>;
 export interface IUser {
     id: number;
     name: string;
-    age: number;
-    login: string;
-    password: string;
+    age?: number;
+    // login: string;
+    // password: string;
+    avatar?: string;
 }
 
 export type TFormErrors = Record<string, string>;
+
+export type TNumStr = (string | number);

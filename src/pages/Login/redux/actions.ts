@@ -11,7 +11,7 @@ import {
     passwordSelector,
 } from './selectors';
 import { loginSliceActions } from './slice';
-import { type ILoginPostData } from './types';
+import { type IAuthLoginData } from './types';
 
 const {
     setLogin,
@@ -34,7 +34,7 @@ const login = (): ThunkActionCommon => (dispatch, getState) => {
         return;
     };
 
-    API_CONTROLLER.post<IUser, ILoginPostData>(ENDPOINTS.login, {
+    API_CONTROLLER.post<IUser & IAuthLoginData, IAuthLoginData>(ENDPOINTS.login, {
         login,
         password,
     }).then((response) => {
