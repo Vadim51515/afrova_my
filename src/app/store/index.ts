@@ -3,7 +3,6 @@ import {
     type ReducersMapObject,
 } from '@reduxjs/toolkit';
 
-import { AppInfoInitialState } from '../../layout/AppInfo/redux/slices/slice';
 import { createReducerManager } from './createReducerManager';
 import {
     type IRootState,
@@ -16,6 +15,7 @@ export const createReduxStore = (
 ) => {
     const rootReducers: DeepPartial<ReducersMapObject<IRootState>> = { ...asyncReducers };
 
+    // TODO
     const reducerManager = createReducerManager(rootReducers);
 
     const store = configureStore({
@@ -37,4 +37,4 @@ export const createReduxStore = (
     return store;
 };
 
-export const store = createReduxStore({ appInfo: AppInfoInitialState,  });
+export const store = createReduxStore();

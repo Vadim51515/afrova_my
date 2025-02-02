@@ -10,7 +10,7 @@ import {
     type IStateKey,
 } from './types';
 
-export function createReducerManager(initialReducers: ReducersMapObject<IRootState>) {
+export function createReducerManager(initialReducers: DeepPartial<ReducersMapObject<IRootState>>) {
     const reducers = { ...initialReducers };
     let combinedReducer = combineReducers(reducers);
     let keysToRemove: Array<IStateKey> = [];

@@ -49,7 +49,7 @@ export interface IReduxStoreWithManager extends EnhancedStore<IRootState> {
 }
 
 type TCreateReducerManager = ReturnType<typeof createReducerManager>;
-export interface IRootStore<S = any, A extends Action = AnyAction> extends Store<S, A> {
+export interface IRootStore<S = IRootState, A extends Action = AnyAction> extends Store<S, A> {
     reducerManager: TCreateReducerManager;
     addModule: (key: keyof IRootState, reducer: Reducer, isReplace?: boolean) => void;
     removeModule: (key: keyof IRootState) => void;

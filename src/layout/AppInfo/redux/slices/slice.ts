@@ -8,7 +8,7 @@ import { type IUser } from '../../../../common/commonTypes';
 import { lStorage } from '../../../../common/functions/localStorage';
 import { type IAppInfoState } from '../types';
 
-export const AppInfoInitialState: IAppInfoState = {
+const initialState: IAppInfoState = {
     status: RuntimeStatuses.BeforeInitial,
     error: '',
     userData: lStorage.getJson<IUser>('userData'),
@@ -19,7 +19,7 @@ export const {
     actions: appInfoSliceActions,
 } = createSlice({
     name: 'appInfo',
-    initialState: AppInfoInitialState,
+    initialState,
     reducers: {
         setStatus(state, { payload }: PayloadAction<RuntimeStatuses>) {
             state.status = payload;
