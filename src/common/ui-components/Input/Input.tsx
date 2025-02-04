@@ -9,8 +9,6 @@ import styles from './styles.module.scss';
 
 export const Input: FC<IInputProps> = ({
     mix,
-    size = 'md',
-    isFullWidth,
     withEventChange,
     onChange,
     dataTestId,
@@ -18,13 +16,7 @@ export const Input: FC<IInputProps> = ({
     hasError,
     ...props
 }) => {
-    console.log('hasError', hasError);
-
-    const mods = {
-        [styles.fullWidth]: isFullWidth,
-        [styles.error]: hasError,
-        [styles[size]]: size,
-    };
+    const mods = { [styles.error]: hasError };
 
     const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
         if (withEventChange) onChange(event);

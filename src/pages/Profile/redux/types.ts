@@ -4,6 +4,8 @@ import {
     type TFormErrors,
 } from '../../../common/commonTypes';
 
-export interface IProfileState extends ISharedState, IUser {
+export interface IProfileState extends ISharedState {
     formErrors: TFormErrors;
+    userData: Partial<IUser>;
+    form: Partial<IUser>;
 }

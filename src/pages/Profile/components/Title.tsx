@@ -6,5 +6,12 @@ import { userNameAppInfoSelector } from '../../../layout/AppInfo/redux/selectors
 export const Title = () => {
     const name = useSelector(userNameAppInfoSelector);
 
-    return <Text tagName='h1'>{`Профиль пользователя: ${name}`}</Text>;
+    return (
+        <Text
+            marginBottom={20}
+            tagName='h1'
+        >
+            {`Профиль пользователя: ${name}`}
+        </Text>
+    );
 };

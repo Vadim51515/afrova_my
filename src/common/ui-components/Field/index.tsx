@@ -15,6 +15,7 @@ import {
     type TFieldProps,
     type TFieldValueType,
 } from './types';
+import styles from './styles.module.scss'
 
 export const Field: FC<TFieldProps> = memo(({
     fieldType,
@@ -65,7 +66,7 @@ export const Field: FC<TFieldProps> = memo(({
     console.log('localErrors', localErrors);
 
     return (
-        <div>
+        <div className={styles.container}>
             <FieldLabel
                 isRequired={isRequired}
                 label={label}

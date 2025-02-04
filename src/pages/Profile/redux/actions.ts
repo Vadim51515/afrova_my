@@ -8,9 +8,10 @@ import { ENDPOINTS } from './endpoints';
 import { profileSliceActions } from './slice';
 
 const {
-    setProfileData,
+    setAllUserData,
     setError,
     setStatus,
+    updateFormData,
 } = profileSliceActions;
 
 const getProfileData = (): ThunkActionCommon => (dispatch) => {
@@ -18,13 +19,19 @@ const getProfileData = (): ThunkActionCommon => (dispatch) => {
 
     API_CONTROLLER.get<IUser>(ENDPOINTS.profile(1)).then((response) => {
         const data = response.data;
-        console.log('data', data);
 
-        dispatch(setProfileData(data));
+        dispatch(setAllUserData(data));
         dispatch(setStatus(RuntimeStatuses.Ready));
     }).catch((errorResponse: AxiosError<{ message: string }>) => {
-        dispatch(setError(errorResponse.response?.data.message ?? ''));
+        dispatch(setError(errorResponse.response?.data.message as string));
     });
 };
 
-export const profileActions = { getProfileData };
+const updateFormValue = (key: keyof IUser, newValue: string): ThunkActionCommon => (dispatch) => {
+    dispatch(updateFormData({ [key]: newValue }));
+};
+
+export const profileActions = {
+    getProfileData,
+    updateFormValue,
+};

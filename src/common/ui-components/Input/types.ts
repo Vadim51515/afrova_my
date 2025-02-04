@@ -3,8 +3,6 @@ import { type ChangeEvent } from 'react';
 import { type Func } from '../../commonTypes';
 import { type ISharedFieldComponentProps } from '../types';
 
-type TInputSize = 'sm' | 'md' | 'lg' | 'xl' | 'sizeContent';
-
 // TODO - Убрать если так и не понадобится
 // type BaseInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> &
 // ISharedFieldComponentProps & IFieldLabelProps & {
@@ -13,9 +11,7 @@ type TInputSize = 'sm' | 'md' | 'lg' | 'xl' | 'sizeContent';
 // };
 
 type BaseInputProps = ISharedFieldComponentProps & {
-    size?: TInputSize;
-    isFullWidth?: boolean;
-    value: string | number;
+    value: string | number | undefined;
 };
 
 export type InputPropsWithEvent = BaseInputProps & {

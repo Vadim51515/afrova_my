@@ -8,12 +8,31 @@
     width: 100%;
     display: flex;
     padding: 20px;
+    gap: 40px;
     border-radius: 8px;
     background-color: var(--additional-bg-color);
 }
 
+.avatarContainer{
+line-height: 0;
+}
 
 .avatar {
     width: 200px;
     height: 200px;
+    border-radius: 4px;
+}
+
+.fieldsWrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fieldsRow{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
 }

@@ -11,8 +11,8 @@ const initialState: IProfileState = {
     status: RuntimeStatuses.BeforeInitial,
     error: '',
     formErrors: {},
-    id: 0,
-    name: '',
+    userData: {},
+    form: {},
 };
 
 export const {
@@ -30,8 +30,21 @@ export const {
             state.error = payload;
         },
 
-        setProfileData(state, { payload }: PayloadAction<IUser>) {
-            Object.assign(state, payload);
+        setUserData(state, { payload }: PayloadAction<IUser>) {
+            state.userData = payload;
+        },
+
+        setFormData(state, { payload }: PayloadAction<IUser>) {
+            state.form = payload;
+        },
+
+        updateFormData(state, { payload }: PayloadAction<Partial<IUser>>) {
+            Object.assign(state.form, payload);
+        },
+
+        setAllUserData(state, { payload }: PayloadAction<IUser>) {
+            state.userData = payload;
+            state.form = payload;
         },
     },
 });
