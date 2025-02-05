@@ -5,5 +5,4 @@ export interface ISharedUIComponentProps {
 
 export interface ISharedFieldComponentProps extends ISharedUIComponentProps {
     hasError?: boolean;
-    mix?: string;
 }
