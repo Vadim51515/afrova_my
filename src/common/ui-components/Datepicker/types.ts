@@ -10,6 +10,6 @@ export interface IDatepickerProps extends ISharedFieldComponentProps {
     dateFormat?: string;
     isForbiddenFuture?: boolean;
     isForbiddenPast?: boolean;
-    minAvailableDate?: Nullable<Date>;
-    maxAvailableDate?: Nullable<Date>;
+    minAvailableDate?: Date;
+    maxAvailableDate?: Date;
 }

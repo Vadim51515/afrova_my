@@ -42,7 +42,7 @@ export const Datepicker: FC<IDatepickerProps> = ({
         <DatePicker
             className='picker'
             dateFormat={SHOW_FORMAT}
-            onChange={(date) => { _onChange(date); }}
+            onChange={_onChange}
             selected={startDate}
             {...pickerProps}
         />
