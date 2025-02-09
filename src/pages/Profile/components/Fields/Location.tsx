@@ -1,9 +1,22 @@
-import { Select } from '../../../../common/ui-components/Select';
+import { useActions } from '../../../../common/hooks/useActions';
+import { useParamSelector } from '../../../../common/hooks/useParamSelector';
+import { Field } from '../../../../common/ui-components/Field';
+import { profileActions } from '../../redux/actions';
+import { profileFormValue } from '../../redux/selectors';
 
 export const Location = () => {
-    const a = 123;
+    const fieldName = 'location';
+    const location = useParamSelector(profileFormValue, fieldName);
+
+    const { updateFormValue } = useActions(profileActions);
 
     return (
-        <Select />
+        <Field
+            fieldType='select'
+            label='Местоположение'
+            onChange={(newValue) => { updateFormValue(fieldName, newValue); }}
+            options={[]}
+            value={location}
+        />
     );
 };

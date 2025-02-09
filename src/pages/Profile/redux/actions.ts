@@ -3,7 +3,10 @@ import { type AxiosError } from 'axios';
 import { type ThunkActionCommon } from '../../../app/store/types';
 import { API_CONTROLLER } from '../../../common/apiController';
 import { RuntimeStatuses } from '../../../common/commonEnums';
-import { type IUser } from '../../../common/commonTypes';
+import {
+    type IUser,
+    type TNumStr,
+} from '../../../common/commonTypes';
 import { ENDPOINTS } from './endpoints';
 import { profileSliceActions } from './slice';
 
@@ -27,7 +30,7 @@ const getProfileData = (): ThunkActionCommon => (dispatch) => {
     });
 };
 
-const updateFormValue = (key: keyof IUser, newValue: string): ThunkActionCommon => (dispatch) => {
+const updateFormValue = (key: keyof IUser, newValue: TNumStr): ThunkActionCommon => (dispatch) => {
     dispatch(updateFormData({ [key]: newValue }));
 };
 

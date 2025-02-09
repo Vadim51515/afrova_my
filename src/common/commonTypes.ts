@@ -11,7 +11,7 @@ export type Nullable<T> = (null | T);
 
 export interface IOption {
     label: string;
-    value: string;
+    value: TNumStr;
 }
 
 export type TOptions = Array<IOption>;

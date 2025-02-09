@@ -5,17 +5,19 @@ import {
     useState,
 } from 'react';
 
+import { Datepicker } from '../Datepicker';
 import { FieldLabel } from '../FieldLabel';
 import { Input } from '../Input/Input'; // TODO импорт кривой
 import { Select } from '../Select';
 import { Text } from '../Text';
+import { type IDatepickerProps } from '../Datepicker/types';
 import { type IInputProps } from '../Input/types';
 import { type ISelectProps } from '../Select/types';
 import {
     type TFieldProps,
     type TFieldValueType,
 } from './types';
-import styles from './styles.module.scss'
+import styles from './styles.module.scss';
 
 export const Field: FC<TFieldProps> = memo(({
     fieldType,
@@ -56,9 +58,15 @@ export const Field: FC<TFieldProps> = memo(({
         case 'input':
             Component = <Input {...componentProps as IInputProps} />;
             break;
+
         case 'select':
             Component = <Select {...componentProps as ISelectProps} />;
             break;
+
+        case 'datepicker':
+            Component = <Datepicker {...componentProps as IDatepickerProps} />;
+            break;
+
         default:
             Component = <Input {...componentProps as IInputProps} />;
     }

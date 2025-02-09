@@ -1,12 +1,9 @@
-import {
-    type Func,
-    type Nullable,
-} from '../../commonTypes';
+import { type Func } from '../../commonTypes';
 import { type ISharedFieldComponentProps } from '../types';
 
 export interface IDatepickerProps extends ISharedFieldComponentProps {
     onChange: Func<[string]>;
-    value?: Nullable<Date>;
+    value?: string;
     dateFormat?: string;
     isForbiddenFuture?: boolean;
     isForbiddenPast?: boolean;

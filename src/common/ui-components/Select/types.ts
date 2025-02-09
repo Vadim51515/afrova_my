@@ -1,11 +1,12 @@
 import {
     type Func,
-    type IOption,
+    type TNumStr,
     type TOptions,
 } from '../../commonTypes';
 import { type ISharedFieldComponentProps } from '../types';
 
 export interface ISelectProps extends ISharedFieldComponentProps {
     options: TOptions;
-    onChange: Func<[IOption]>;
+    onChange: Func<[TNumStr]>;
+    value: TNumStr | undefined;
 }

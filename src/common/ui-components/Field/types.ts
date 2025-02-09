@@ -1,4 +1,5 @@
 import { type Func } from '../../commonTypes';
+import { type IDatepickerProps } from '../Datepicker/types';
 import { type IFieldLabelProps } from '../FieldLabel/types';
 import { type IInputProps } from '../Input/types';
 import { type ISelectProps } from '../Select/types';
@@ -15,7 +16,11 @@ type TInputFieldProps = IBaseFieldProps & IInputProps & {
     fieldType: 'input';
 };
 
-export type TFieldProps = TInputFieldProps | TSelectFieldProps;
+type TDatepickerFieldProps = IBaseFieldProps & IDatepickerProps & {
+    fieldType: 'datepicker';
+};
+
+export type TFieldProps = TInputFieldProps | TSelectFieldProps | TDatepickerFieldProps;
 
 type ExtractOnChangeArgType<T> = T extends { onChange: Func<infer Args, any> } ? Args[0] : never;
 

@@ -1,14 +1,21 @@
-import { Datepicker } from '../../../../common/ui-components/Datepicker';
+import { useActions } from '../../../../common/hooks/useActions';
+import { useParamSelector } from '../../../../common/hooks/useParamSelector';
+import { Field } from '../../../../common/ui-components/Field';
+import { profileActions } from '../../redux/actions';
+import { profileFormValue } from '../../redux/selectors';
 
 export const BirthDate = () => {
-    const a = 1;
+    const fieldName = 'birthDate';
+    const birthDate = useParamSelector(profileFormValue, fieldName);
+
+    const { updateFormValue } = useActions(profileActions);
 
     return (
-        // <Field fieldType="date" />
-        <Datepicker
-            onChange={(newValue) => {
-                console.log('BirthDate', newValue);
-            }}
+        <Field
+            fieldType='datepicker'
+            label='Дата рождения'
+            onChange={(newValue) => { updateFormValue(fieldName, newValue); }}
+            value={birthDate !== undefined && String(birthDate)}
             isForbiddenFuture
         />
     );

@@ -10,22 +10,11 @@ import {
 import { Text } from '../Text';
 import { type ISelectProps } from './types';
 import styles from './styles.module.scss';
-const options = [
-    {
-        value: 'chocolate',
-        label: 'Chocolate',
-    },
-    {
-        value: 'strawberry',
-        label: 'Strawberry',
-    },
-    {
-        value: 'vanilla',
-        label: 'Vanilla',
-    },
-];
 
-export const Select: FC<ISelectProps> = () => {
+export const Select: FC<ISelectProps> = ({
+    onChange,
+    options = [],
+}) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [selectedOption, setSelectedOption] = useState<Nullable<IOption>>(null);
 
@@ -39,7 +28,7 @@ export const Select: FC<ISelectProps> = () => {
                 tagName='span'
                 isFieldText
             >
-                123
+                {selectedOption?.label}
             </Text>
 
             {isOpen && (
@@ -48,6 +37,13 @@ export const Select: FC<ISelectProps> = () => {
                         <div
                             className={styles.option}
                             key={option.value}
+                            onClick={(e) => {
+                                onChange(option.value);
+                                setSelectedOption(option);
+                                setIsOpen(false);
+
+                                e.stopPropagation();
+                            }}
                         >
                             {option.label}
                         </div>
