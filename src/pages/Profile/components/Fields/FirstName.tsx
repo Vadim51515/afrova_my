@@ -12,6 +12,7 @@ export const FirstName = () => {
 
     return (
         <Field
+            dataTestId={fieldName}
             fieldType="input"
             label='Имя'
             onChange={(newValue: string) => { updateFormValue(fieldName, newValue); }}

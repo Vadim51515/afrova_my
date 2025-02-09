@@ -12,9 +12,11 @@ export const Gender = () => {
 
     return (
         <Field
+            dataTestId={fieldName}
             fieldType='select'
             label='Пол'
             onChange={(newValue) => { updateFormValue(fieldName, newValue); }}
+            options={[]}
             value={location}
         />
     );

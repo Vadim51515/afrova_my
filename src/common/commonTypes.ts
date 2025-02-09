@@ -22,7 +22,7 @@ export interface IUser {
     avatar?: string;
     lastName?: string;
     middleName?: string;
-    location?: string;
+    phoneNumber?: string;
     gender?: string;
     birthDate?: string;
 }

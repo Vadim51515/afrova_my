@@ -3,8 +3,8 @@ import { BirthDate } from './Fields/BirthDate';
 import { FirstName } from './Fields/FirstName';
 import { Gender } from './Fields/Gender';
 import { LastName } from './Fields/LastName';
-import { Location } from './Fields/Location';
 import { MiddleName } from './Fields/MiddleName';
+import { PhoneNumber } from './Fields/PhoneNumber';
 
 export const Fields = () => (
     <div className={styles.fieldsWrapper}>
@@ -19,7 +19,7 @@ export const Fields = () => (
         <div className={styles.fieldsRow}>
             <BirthDate />
 
-            <Location />
+            <PhoneNumber />
 
             <Gender />
         </div>
