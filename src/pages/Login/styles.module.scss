@@ -1,14 +1,14 @@
 .wrapper{
-    width: 100%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    background-color: var(--additional-bg-color);
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
     padding: 20px;
+    background-color: var(--additional-bg-color);
+    border-radius: 8px;
 }
 
 .content{

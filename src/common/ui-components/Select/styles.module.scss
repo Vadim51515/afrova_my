@@ -2,10 +2,10 @@
     position: relative;
     width: 100%;
     height: var(--height-field);
-    padding: 10px 10px;
-    border: 1px solid var(--border-color);
-    background-color: field;
+    padding: 10px;
     color: var(--for-field-color);
+    background-color: field;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     outline: 0;
     cursor: pointer;
@@ -17,10 +17,10 @@
 
 .menu {
     position: absolute;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    left: 0;
     top: calc(var(--height-field) + 5px);
+    left: 0;
+    width: 100%;
+    background-color: rgb(255 255 255);
     border-radius: 4px;
 }
 
@@ -37,6 +37,6 @@
 }
 
 .option:hover{
-    background-color: var(--primary-color);
     color: var(--for-primary-color);
+    background-color: var(--primary-color);
 }
