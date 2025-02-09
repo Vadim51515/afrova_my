@@ -1,0 +1,42 @@
+.wrapper{
+    position: relative;
+    width: 100%;
+    height: var(--height-field);
+    padding: 10px 10px;
+    border: 1px solid var(--border-color);
+    background-color: field;
+    color: var(--for-field-color);
+    border-radius: 4px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.value{
+    font-size: 14px;
+}
+
+.menu {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    left: 0;
+    top: calc(var(--height-field) + 5px);
+    border-radius: 4px;
+}
+
+.menu div:first-child {
+ border-radius: 4px 4px 0 0;
+}
+
+.menu div:last-child {
+    border-radius:  0 0 4px 4px;
+}
+
+.option{
+    padding: 10px;
+}
+
+.option:hover{
+    background-color: var(--primary-color);
+    color: var(--for-primary-color);
+}
