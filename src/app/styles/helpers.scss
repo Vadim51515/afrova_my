@@ -1,0 +1,57 @@
+$indentSizes: 0, 4, 5, 8, 10, 12, 15, 16, 20, 24, 28, 32;
+
+@each $indentSize in $indentSizes {
+    .pv-#{$indentSize} {
+        padding-top: #{$indentSize}px;
+        padding-bottom: #{$indentSize}px;
+    }
+    .pt-#{$indentSize} {
+        padding-top: #{$indentSize}px;
+    }
+    .pb-#{$indentSize} {
+        padding-bottom: #{$indentSize}px;
+    }
+    .ph-#{$indentSize} {
+        padding-left: #{$indentSize}px;
+        padding-right: #{$indentSize}px;
+    }
+    .pl-#{$indentSize} {
+        padding-left: #{$indentSize}px;
+    }
+    .pr-#{$indentSize} {
+        padding-right: #{$indentSize}px;
+    }
+    .p-#{$indentSize} {
+        padding: #{$indentSize}px;
+    }
+    .mv-#{$indentSize} {
+        margin-top: #{$indentSize}px;
+        margin-bottom: #{$indentSize}px;
+    }
+    .mt-#{$indentSize} {
+        margin-top: #{$indentSize}px;
+    }
+    .mb-#{$indentSize} {
+        margin-bottom: #{$indentSize}px;
+    }
+    .mh-#{$indentSize} {
+        margin-left: #{$indentSize}px;
+        margin-right: #{$indentSize}px;
+    }
+    .ml-#{$indentSize} {
+        margin-left: #{$indentSize}px;
+    }
+    .mr-#{$indentSize} {
+        margin-right: #{$indentSize}px;
+    }
+    .m-#{$indentSize} {
+        margin: #{$indentSize}px;
+    }
+    .gap-#{$indentSize} {
+        gap: #{$indentSize}px;
+    }
+}
+
+.d-flex {
+    display: flex;
+}

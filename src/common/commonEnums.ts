@@ -4,3 +4,10 @@ export enum RuntimeStatuses {
     Loading = 'loading',
     Error = 'error',
 }
+
+export enum FormStatuses {
+    Read = 'read',
+    Edit = 'edit',
+    Loading = 'loading',
+    Error = 'error',
+}

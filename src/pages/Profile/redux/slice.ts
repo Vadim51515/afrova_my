@@ -3,7 +3,10 @@ import {
     type PayloadAction,
 } from '@reduxjs/toolkit';
 
-import { RuntimeStatuses } from '../../../common/commonEnums';
+import {
+    FormStatuses,
+    RuntimeStatuses,
+} from '../../../common/commonEnums';
 import { type IUser } from '../../../common/commonTypes';
 import { type IProfileState } from './types';
 
@@ -13,6 +16,7 @@ const initialState: IProfileState = {
     formErrors: {},
     userData: {},
     form: {},
+    formStatus: FormStatuses.Read,
 };
 
 export const {
@@ -40,6 +44,10 @@ export const {
 
         updateFormData(state, { payload }: PayloadAction<Partial<IUser>>) {
             Object.assign(state.form, payload);
+        },
+
+        updateFormStatus(state, { payload }: PayloadAction<FormStatuses>) {
+            state.formStatus = payload;
         },
 
         setAllUserData(state, { payload }: PayloadAction<IUser>) {

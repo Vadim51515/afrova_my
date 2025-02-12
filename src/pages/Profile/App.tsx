@@ -6,7 +6,7 @@ import { useActions } from '../../common/hooks/useActions';
 import { Loader } from '../../common/ui-components/Loader';
 import { Avatar } from './components/Avatar';
 import { Fields } from './components/Fields';
-import { Title } from './components/Title';
+import { HeaderActionControls } from './components/HeaderActionControls';
 import { profileActions } from './redux/actions';
 import { isLoadingSelector } from './redux/selectors';
 import { profileReducer } from './redux/slice';
@@ -27,7 +27,7 @@ export default () => {
 
     return (
         <div className={styles.wrapper}>
-            <Title />
+            <HeaderActionControls />
 
             <div className={styles.content}>
                 <Avatar />
