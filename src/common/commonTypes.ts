@@ -19,9 +19,9 @@ export type TOptions = Array<IOption>;
 export interface IUser {
     id: number;
     firstName: string;
+    middleName: string;
     avatar?: string;
     lastName?: string;
-    middleName?: string;
     phoneNumber?: string;
     gender?: string;
     birthDate?: string;
