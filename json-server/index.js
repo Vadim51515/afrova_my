@@ -18,14 +18,21 @@ server.use(async (req, res, next) => {
     next()
 })
 
+const getCurrentUser = (userId) => {
+    const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+    const { users = {} } = db
+
+    return users[userId]
+}
+
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
-        const { users = [] } = db
+        const { users = {} } = db
 
-        const userFromBd = users.find(
+        const userFromBd = Object.values(users).find(
             (user) => user.username === username && user.password === password
         )
 
@@ -42,10 +49,7 @@ server.post('/login', (req, res) => {
 
 server.get('/profile/:id', (req, res) => {
     try {
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
-        const { users = [] } = db
-        
-        const currentUser = db.users.find(c => c.id === +req.params.id)
+        const currentUser = getCurrentUser(req.params.id)
 
         delete currentUser.password;
         delete currentUser.login;
@@ -54,7 +58,7 @@ server.get('/profile/:id', (req, res) => {
             return res.json(currentUser)
         }
 
-        return res.status(403).json({ message: 'User not found' })
+        return res.status(404).json({ message: 'Профиль не найден' })
     } catch (e) {
         console.log(e)
         return res.status(500).json({ message: e.message })
@@ -64,25 +68,32 @@ server.get('/profile/:id', (req, res) => {
 
 server.put('/profile/:id', (req, res) => {
     try {
-        console.log('req.body',req.body);
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
-        const { users = [] } = db
-        
-        const currentUser = db.users.find(c => c.id === +req.params.id)
+        // Чтение текущей базы данных
+        const dbPath = path.resolve(__dirname, 'db.json');
+        const db = JSON.parse(fs.readFileSync(dbPath, 'UTF-8'));
 
-        delete currentUser.password;
-        delete currentUser.login;
+        // Получение текущего пользователя
+        const currentUser = getCurrentUser(req.params.id);
 
-        if (currentUser) {
-            return res.json(currentUser)
+        if (!currentUser) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        return res.status(403).json({ message: 'User not found' })
+        // Обновление данных пользователя
+        const updatedUser = { ...db.users[req.params.id], ...req.body };
+        db.users[req.params.id] = updatedUser;
+
+        // Запись обновленных данных обратно в файл
+        fs.writeFileSync(dbPath, JSON.stringify(db, null, 2), 'UTF-8');
+
+        // Возврат обновленного пользователя
+        return res.json(updatedUser);
     } catch (e) {
-        console.log(e)
-        return res.status(500).json({ message: e.message })
+        console.log(e);
+        return res.status(500).json({ message: e.message });
     }
-})
+});
+
 
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line

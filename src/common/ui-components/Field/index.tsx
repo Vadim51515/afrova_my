@@ -32,8 +32,6 @@ export const Field: FC<TFieldProps> = memo(({
     const [localErrors, setLocalErrors] = useState<Array<string>>([]);
 
     useEffect(() => {
-        console.log('useEffect');
-
         if (errors) setLocalErrors(errors.filter(Boolean));
     }, [errors]);
 

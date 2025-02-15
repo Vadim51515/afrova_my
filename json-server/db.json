@@ -1,10 +1,36 @@
 {
-    "users": [
-      { "id": 1, "firstName": "John", "middleName": "middleName", "lastName": "Doe", "birthDate": "10.09.2010", "gender": "man", "phoneNumber": "89506464500",  "login": "admin", "password": "123", "avatar": "https://illustrators.ru/uploads/illustration/image/1509699/kas.jpg" },
-      { "id": 2, "name": "Jane Smith", "age": 25, "login": "test_client", "password": "testpass1", "avatar": "https://illustrators.ru/uploads/illustration/image/1509699/kas.jpg" }
-    ],
-    "posts": [
-      { "id": 1, "title": "Hello World", "content": "This is a test post" },
-      { "id": 2, "title": "Another Post", "content": "Content of the post" }
-    ]
-  }
+  "users": {
+    "1": {
+      "id": 1,
+      "firstName": "John1231ssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+      "middleName": "middleName",
+      "lastName": "Doe",
+      "birthDate": "10.09.2010",
+      "gender": "man",
+      "phoneNumber": "89506464500",
+      "login": "admin",
+      "password": "123",
+      "avatar": "https://illustrators.ru/uploads/illustration/image/1509699/kas.jpg"
+    },
+    "2": {
+      "id": 2,
+      "name": "Jane Smith",
+      "age": 25,
+      "login": "test_client",
+      "password": "testpass1",
+      "avatar": "https://illustrators.ru/uploads/illustration/image/1509699/kas.jpg"
+    }
+  },
+  "posts": [
+    {
+      "id": 1,
+      "title": "Hello World",
+      "content": "This is a test post"
+    },
+    {
+      "id": 2,
+      "title": "Another Post",
+      "content": "Content of the post"
+    }
+  ]
+}

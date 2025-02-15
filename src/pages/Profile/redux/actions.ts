@@ -58,12 +58,13 @@ export const cancelEditForm = (): ThunkActionCommon => (dispatch, getState) => {
 
 export const saveForm = (): ThunkActionCommon => (dispatch, getState) => {
     const profileForm = profileFormSelector(getState());
+    dispatch(updateFormStatus(FormStatuses.Loading));
 
     API_CONTROLLER.put<IUser, Partial<IUser>>(ENDPOINTS.profile(1), profileForm).then((response) => {
         const data = response.data;
 
         dispatch(setAllUserData(data));
-        dispatch(setStatus(RuntimeStatuses.Ready));
+        dispatch(updateFormStatus(FormStatuses.Read));
     }).catch((errorResponse: AxiosError<{ message: string }>) => {
         dispatch(setError(errorResponse.response?.data.message as string));
     });
