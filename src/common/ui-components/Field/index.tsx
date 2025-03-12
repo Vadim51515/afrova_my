@@ -7,7 +7,7 @@ import {
 
 import { Datepicker } from '../Datepicker';
 import { FieldLabel } from '../FieldLabel';
-import { Input } from '../Input/Input'; // TODO импорт кривой
+import { Input } from '../Input';
 import { Select } from '../Select';
 import { Text } from '../Text';
 import { type IDatepickerProps } from '../Datepicker/types';

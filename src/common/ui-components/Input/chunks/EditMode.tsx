@@ -4,10 +4,10 @@ import {
 } from 'react';
 import classNames from 'classnames';
 
-import { type IInputProps } from './types';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
+import { type IInputProps } from '../types';
 
-export const Input: FC<IInputProps> = ({
+export const EditMode: FC<IInputProps> = ({
     mix,
     withEventChange,
     onChange,

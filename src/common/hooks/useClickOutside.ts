@@ -5,8 +5,8 @@ import {
 
 import { type Func } from '../commonTypes';
 
-export const useClickOutside = (action: Func) => {
-    const ref = useRef<HTMLElement>(null);
+export const useClickOutside = <T extends HTMLElement>(action: Func) => {
+    const ref = useRef<T>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -20,10 +20,7 @@ export const useClickOutside = (action: Func) => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [
-        ref,
-        action,
-    ]);
+    }, [action]);
 
     return ref;
 };

@@ -10,7 +10,7 @@ import {
 export const FirstName = () => {
     const fieldName = 'firstName';
     const name = useParamSelector(profileFormValueSelector, fieldName);
-    const isReadOnly = useParamSelector(profileFormIsReadonlySelector);
+    const isReadonly = useParamSelector(profileFormIsReadonlySelector);
 
     const { updateFormValue } = useActions(profileActions);
 
@@ -18,7 +18,7 @@ export const FirstName = () => {
         <Field
             dataTestId={fieldName}
             fieldType="input"
-            isReadOnly={isReadOnly}
+            isReadonly={isReadonly}
             label='Имя'
             onChange={(newValue: string) => { updateFormValue(fieldName, newValue); }}
             value={name}
