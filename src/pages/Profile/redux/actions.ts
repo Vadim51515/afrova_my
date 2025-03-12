@@ -70,10 +70,27 @@ export const saveForm = (): ThunkActionCommon => (dispatch, getState) => {
     });
 };
 
+export const uploadProfileAvatar = (file): ThunkActionCommon => (dispatch, getState) => {
+    console.log('file', file);
+
+    const formData = new FormData();
+    formData.append('avatar', file[0]);
+
+    API_CONTROLLER.post<IUser, Partial<IUser>>(ENDPOINTS.uploadAvatar, formData).then((response) => {
+        const data = response.data;
+
+        dispatch(setAllUserData(data));
+        dispatch(updateFormStatus(FormStatuses.Read));
+    }).catch((errorResponse: AxiosError<{ message: string }>) => {
+        dispatch(setError(errorResponse.response?.data.message as string));
+    });
+};
+
 export const profileActions = {
     getProfileData,
     updateFormValue,
     editForm,
     cancelEditForm,
     saveForm,
+    uploadProfileAvatar,
 };

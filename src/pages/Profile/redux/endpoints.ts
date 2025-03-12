@@ -1,3 +1,6 @@
 import { type TNumStr } from '../../../common/commonTypes';
 
-export const ENDPOINTS = { profile: (profileId: TNumStr) => `profile/${profileId}` };
+export const ENDPOINTS = {
+    profile: (profileId: TNumStr) => `profile/${profileId}`,
+    uploadAvatar: '/upload-avatar',
+};

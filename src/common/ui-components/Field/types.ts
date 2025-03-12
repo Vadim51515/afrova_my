@@ -6,6 +6,7 @@ import { type ISelectProps } from '../Select/types';
 
 interface IBaseFieldProps extends IFieldLabelProps {
     errors?: Array<string>;
+    isReadOnly?: boolean;
 }
 
 type TSelectFieldProps = IBaseFieldProps & ISelectProps & {

@@ -18,10 +18,10 @@ export const FirstName = () => {
         <Field
             dataTestId={fieldName}
             fieldType="input"
+            isReadOnly={isReadOnly}
             label='Имя'
             onChange={(newValue: string) => { updateFormValue(fieldName, newValue); }}
             value={name}
-            isReadOnly
         />
     );
 };
