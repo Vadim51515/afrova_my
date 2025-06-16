@@ -25,3 +25,7 @@ export type InputPropsWithString = BaseInputProps & {
 };
 
 export type IInputProps = InputPropsWithEvent | InputPropsWithString;
+
+console.log('1');
+console.log('2');
+console.log('3');
